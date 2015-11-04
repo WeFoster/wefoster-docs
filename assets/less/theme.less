@@ -1,0 +1,120 @@
+@font-size-base: 18px;
+@font-line-height: 170%;
+
+@padding-full: 40px;
+@padding-half: 20px;
+@margin-full: 40px;
+@margin-half: 20px;
+
+#comments {
+  display: none;
+}
+
+h1,h2,h3,h4 {
+  font-weight: 500;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  border-radius: 0;
+  font-size: 60%;
+  letter-spacing: 0.5px;
+  list-style: outside none none;
+  margin-bottom: 40px !important;
+  margin-left: -40px;
+  margin-right: -40px;
+  margin-top: -40px;
+  padding: 8px 40px;
+  position: absolute;
+  right: 5px;
+  text-align: right;
+  text-transform: uppercase;
+  top: -3px;
+  width: 100%;
+  }
+
+.wpkb-rating {
+  .alert();
+  .alert-success();
+}
+
+
+.wefoster-framework .entry-content {
+
+  h2 {
+    /* color: #FFF; */
+    margin-left: -@margin-full;
+    margin-right: -@margin-full;
+    padding: @padding-half @padding-full;
+    margin-bottom: @margin-full;
+    border-bottom: 2px solid @brand-complimentary;
+  }
+
+  h3 {
+    color: @brand-complimentary;
+    font-size: 19px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  ol,ul {
+    color: @gray;
+     margin-bottom: 30px;
+     margin-left: 0;
+     margin-top: 30px;
+     padding-left: 40px;
+
+    li {
+      padding-bottom: 10px;
+    }
+
+  }
+
+}
+
+
+
+//
+//TOC
+//
+.toc_widget_list {
+
+  margin: 0;
+  padding: 0;
+
+  span {
+    background: none repeat scroll 0 0 #454a54;
+     border-radius: 3px;
+     color: #fff;
+     font-size: 74%;
+     font-weight: 500;
+     opacity: 0.8;
+     padding: 2px 5px;
+     position: relative;
+     top: -1px;
+  }
+
+  li {
+    border-bottom: 1px solid darken(@white, 3%);
+    list-style: outside none none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    ul {
+      margin-left: 0;
+      font-size: 95%;
+      margin-left: -20px;
+
+    li {
+      border-bottom: 0;
+      padding-bottom: 6px;
+      padding-top: 6px;
+
+      span {
+        background: transparent;
+        color: @text-color;
+      }
+      }
+    }
+  }
+}
