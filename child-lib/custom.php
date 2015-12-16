@@ -73,6 +73,23 @@ add_action( 'open_sidebar','wfc_facet_tricks' );
 * Add Facets to Articles
 *
 */
+function wfc_site_header() {?>
+
+  <article class="widget site-header">
+
+    <h4><i class="fa fa-chevron-left"></i> <a href="<?php echo site_url();?>">Documentation</a></h4>
+
+  </article>
+
+
+<?php
+}
+add_action( 'open_sidebar','wfc_site_header', 1 );
+
+/**
+* Add Facets to Articles
+*
+*/
 function wfc_back_widget() {
   if ( is_singular('wpkb-article') ):?>
 
