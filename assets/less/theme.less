@@ -1,46 +1,52 @@
 @font-size-base: 18px;
 @font-line-height: 170%;
 
-@padding-full: 40px;
-@padding-half: 20px;
-@margin-full: 40px;
-@margin-half: 20px;
-
-#comments {
+// @padding-full: 40px;
+// @padding-half: 20px;
+// @margin-full: 40px;
+// @margin-half: 20px;
+#comments,
+.no-comments,
+.post-meta span,
+.inner-sidebar.mobile,
+.content-info {
   display: none;
 }
 
-h1,h2,h3,h4 {
+.content-wrapper {
+  margin-bottom: 75px;
+}
+
+h1,
+h2,
+h3,
+h4 {
   font-weight: 500;
 }
 
 .breadcrumb {
-  background-color: transparent;
+  background: @white;
   border-radius: 0;
-  font-size: 60%;
-  letter-spacing: 0.5px;
+  border-top: 1px solid #f8f8f8;
+  bottom: 0;
+  font-size: 90%;
   list-style: outside none none;
-  margin-bottom: 40px !important;
-  margin-left: -40px;
-  margin-right: -40px;
-  margin-top: -40px;
-  padding: 8px 40px;
-  position: absolute;
-  right: 5px;
+  margin: 0 !important;
+  padding: 10px 30px;
+  position: fixed;
+  right: 0;
   text-align: right;
-  text-transform: uppercase;
-  top: -3px;
+  text-transform: none;
   width: 100%;
-  }
+  z-index: 0;
+}
 
 .wpkb-rating {
   .alert();
   .alert-success();
 }
 
-
-.wefoster-framework .entry-content {
-
+.wefoster-framework .main {
   h2 {
     /* color: #FFF; */
     margin-left: -@margin-full;
@@ -48,73 +54,170 @@ h1,h2,h3,h4 {
     padding: @padding-half @padding-full;
     margin-bottom: @margin-full;
     border-bottom: 2px solid @brand-complimentary;
+    
+    span {
+      padding-top: 15px;
+      font-size: 78%;
+      font-weight: bold;
+    }
   }
 
   h3 {
-    color: @brand-complimentary;
-    font-size: 19px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-size: 130%;
+    font-weight: bold;
+    
+    span {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
   }
 
-  ol,ul {
-    color: @gray;
-     margin-bottom: 30px;
-     margin-left: 0;
-     margin-top: 30px;
-     padding-left: 40px;
-
+  ol,
+  ul {
+    background: @box-light-background;
+    margin-bottom: 30px;
+    margin-left: 0;
+    margin-top: 30px;
+    padding: 15px 30px;
+    
     li {
+      border-bottom: 1px solid darken(@box-light-background, 4%);
+      list-style: outside none none;
       padding-bottom: 10px;
+      padding-top: 15px;
+      
+      &:before {
+        .font-icon();
+        content: "\f18e";
+      }
+
+      p {
+        display: inline;
+        margin-bottom: 0;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  //KB Tweaks
+  .wpkb-list-content {
+    ul {
+      overflow: hidden;
     }
 
+    li {
+      width: 50%;
+      float: left;
+      border-bottom: 0;
+      
+      &:before {
+        content: "\f0f6";
+      }
+    }
   }
-
 }
-
-
 
 //
 //TOC
 //
 .toc_widget_list {
-
   margin: 0;
   padding: 0;
+  font-size: 95%;
+  
+  a {
+    color: lighten(@brand-primary, 50%) !important;
+  }
 
   span {
-    background: none repeat scroll 0 0 #454a54;
-     border-radius: 3px;
-     color: #fff;
-     font-size: 74%;
-     font-weight: 500;
-     opacity: 0.8;
-     padding: 2px 5px;
-     position: relative;
-     top: -1px;
+    background: darken(@brand-primary, 3%);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 74%;
+    font-weight: 500;
+    opacity: 0.8;
+    padding: 2px 5px;
+    position: relative;
+    top: -1px;
   }
 
   li {
-    border-bottom: 1px solid darken(@white, 3%);
+    border-bottom: 1px solid lighten(@brand-primary, 3%);
     list-style: outside none none;
     padding-bottom: 10px;
     padding-top: 10px;
-
+    
     ul {
       margin-left: 0;
       font-size: 95%;
       margin-left: -20px;
-
-    li {
-      border-bottom: 0;
-      padding-bottom: 6px;
-      padding-top: 6px;
-
-      span {
-        background: transparent;
-        color: @text-color;
-      }
+      
+      li {
+        border-bottom: 0;
+        padding-bottom: 6px;
+        padding-top: 6px;
+        
+        span {
+          background: transparent;
+          font-weight: bold;
+          
+          //color: @text-color;
+        }
       }
     }
   }
+}
+
+.inner-sidebar {
+  margin-left: -30px;
+  position: fixed;
+  z-index: 11;
+  width: 24%;
+}
+
+.sidebar.is_stuck .inner-sidebar {
+  position: inherit !important;
+}
+
+.toc_widget {
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+.wefoster-framework .content-wrapper {
+  .inner-sidebar,
+  .widget,
+  .widget h4 {
+    .box-brand-primary();
+  }
+}
+
+//Knowledge Base
+.wpkb-list-title {
+  font-size: 160%;
+  .box-padding-full;
+  .box-brand-secondary();
+  .margin-vertical-full();
+}
+
+.edit-on-github {
+  display: block!important;
+  text-align: right;
+}
+
+.is_stuck {
+  position: fixed;
+  height: 100%;
+}
+
+.tax-wpkb-category .wpkb-list-title {
+  margin-top: -30px;
+}
+
+.inner-sidebar .back-to-docs h4 {
+  font-size: 90%;
 }
