@@ -25,6 +25,16 @@ function wfc_facetclass() {
 }
 add_action( 'class_main','wfc_facetclass' );
 
+/**
+* Add a hook for WPFacet
+*
+*/
+function wfc_sidebar_class() {?>
+  js-flash
+<?php
+}
+add_action( 'class_inner_sidebar','wfc_sidebar_class' );
+
 function wfc_facet_pagination() {
   if ( is_front_page() ): ?>
 
@@ -33,6 +43,8 @@ function wfc_facet_pagination() {
 <?php endif;
 }
 add_action( 'after_loop','wfc_facet_pagination' );
+
+
 
 /**
 * Add Facets to Articles

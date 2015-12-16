@@ -103,10 +103,40 @@
 
 
 
-
 jQuery(document).ready(function() {
 
   jQuery(".sidebar").stick_in_parent();
+
+
+
+  jQuery('.inner-sidebar').removeClass('js-flash');
+  jQuery('.inner-sidebar').addClass('animated fadeIn');
+
+  //Ajax FaceWP Goodness
+  jQuery(window).bind("load", function() {
+
+    jQuery(document).on('facetwp-loaded', function() {
+      jQuery('html, body').animate({
+        scrollTop: jQuery('.main').offset().top - 400
+      }, 500);
+    });
+
+    jQuery(document).on('facetwp-refresh', function() {
+      jQuery('.facetwp-template').prepend(
+        '<div class="loading-tricks"><div class="loading-spinner"><i class="fa fa-spinner fa-pulse"></i></div></div>');
+    });
+  });
+
+  jQuery(document).on('facetwp-loaded', function() {
+    jQuery(".loading-tricks").remove();
+  });
+
+
+
+  jQuery('.post-loop a').attr('href', function(index, value) {
+    return value + '#wpkb-breadcrumbs';
+  });
+
 
   function setHeight() {
     windowHeight = jQuery(window).innerHeight();
