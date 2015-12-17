@@ -34,7 +34,10 @@ function wfc_site_header() {?>
 
   <article class="widget site-header">
 
-    <h4><a href="<?php echo site_url();?>">WeFoster Docs</a></h4>
+    <h4><a href="<?php echo site_url();?>">
+      <img class="docs-logo" src="https://wefoster.co/wp-content/themes/wefoster/assets/img/logos/minimal-regular-inverse.png">
+      WeFoster Docs</a>
+    </h4>
 
   </article>
 

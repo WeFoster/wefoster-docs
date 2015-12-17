@@ -22,6 +22,13 @@
   .fadeInRight; // Initiate bounce effect
 }
 
+.docs-logo {
+  float: left;
+  height: 30px;
+  margin-right: 5px;
+  width: 30px;
+}
+
 h1,
 h2,
 h3,
@@ -284,11 +291,11 @@ h4 {
 }
 
 .idea-status-label {
-  background: @brand-secondary;
+  background: @brand-complimentary;
   border-radius: 3px;
   color: #fff !important;
   font-weight: bold;
-  padding: 8px 20px;
+  padding: 8px 12px;
   font-size: 80%;
   
   &:before {
@@ -326,8 +333,18 @@ h4 {
 }
 
 //FacetWP
-.facetwp-checkbox.checked {
-  font-weight: bold;
+.sidebar {
+  .facetwp-checkbox.checked {
+    font-weight: bold;
+  }
+
+  .facetwp-facet {
+    margin-bottom: 0;
+  }
+}
+
+.buddypress-active .sidebar-offcanvas {
+  top: 0 !important;
 }
 
 //GistPen
