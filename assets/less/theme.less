@@ -296,7 +296,53 @@ h4 {
   }
 }
 
+.site-search {
+  left: 24.5%;
+  position: absolute;
+  top: 10px;
+  width: 44%;
+  font-family: "Raleway",Helvetica,Arial,sans-serif;
+  
+  .input-group-addon {
+    border: 0;
+    background: @brand-primary;
+    color: @white;
+  }
+
+  .input-group .form-control {
+    background: darken(@white, 3%) none repeat scroll 0 0;
+    border: 0 none !important;
+    border-radius: 2px !important;
+    box-shadow: none;
+    float: left;
+    font-weight: 600;
+    margin-bottom: 0;
+    
+    //min-height: 47px;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+  }
+}
+
 //FacetWP
 .facetwp-checkbox.checked {
   font-weight: bold;
+}
+
+//GistPen
+pre.gistpen {
+  background: darken(@brand-primary, 10%);
+  font-size: 90%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  
+  .comment {
+    margin: inherit;
+    border-bottom: 0;
+  }
+}
+
+.wp-gistpenfile-title {
+  color: @gray;
 }

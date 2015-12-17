@@ -9,6 +9,22 @@ function wfc_sidebar_class() {?>
 }
 add_action( 'class_inner_sidebar','wfc_sidebar_class' );
 
+/**
+ * Idea Stream Search
+ *
+ */
+function wfd_search() { ?>
+<div class="site-search">
+  <form action="" method="get">
+      <div class="input-group col-sm-9">
+         <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input class="form-control" type="text" placeholder="Start typing to search...." name="s" id="s" value="" data-swplive="true"/> <!-- data-swplive="true" enables SearchWP Live Search -->
+      </div><!-- /input-group -->
+  </form>
+</div>
+<?
+}
+add_action( 'open_primary_navigation','wfd_search' );
 
 /**
 * Add Facets to Articles
