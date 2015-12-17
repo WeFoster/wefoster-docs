@@ -23,3 +23,6 @@ add_action( 'after_setup_theme', 'wff_child_theme_setup' );
 
 require_once locate_template('/child-lib/scripts.php');          	// Custom functions
 require_once locate_template('/child-lib/custom.php');          	// Custom functions
+require_once locate_template('/child-lib/acf.php');          	// Custom functions
+require_once locate_template('/child-lib/facetwp.php');          	// Custom functions
+require_once locate_template('/child-lib/kb.php');          	// Custom functions

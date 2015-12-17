@@ -176,37 +176,22 @@ h4 {
   }
 }
 
-.sidebar {
-  padding-left: 0;
-  padding-right: 15px;
-  
-  //position: absolute;
-  top: 0;
-}
-
-.inner-sidebar {
-  margin-left: -30px;
-  position: fixed;
-  z-index: 11;
-  width: 24%;
-}
-
-.sidebar.is_stuck .inner-sidebar {
-  position: inherit !important;
-  display: block !important;
-}
-
-.toc_widget {
-  position: absolute;
-  height: 100%;
-  overflow: auto;
-}
-
 .wefoster-framework .content-wrapper {
   .inner-sidebar,
   .widget,
   .widget h4 {
     .box-brand-primary();
+  }
+
+  .sidebar .inner-sidebar .widget.site-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+    h4 {
+      padding-bottom: 20px;
+      padding-top: 15px;
+      background: darken(@brand-primary, 5%);
+    }
   }
 }
 
@@ -267,4 +252,51 @@ h4 {
 
 .facetwp-loading {
   display: none !important;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .sidebar {
+    padding-left: 0;
+    padding-right: 15px;
+    position: absolute;
+    top: 0;
+  }
+
+  .inner-sidebar {
+    margin-left: -30px;
+    position: fixed;
+    z-index: 10000;
+    width: 24%;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  .sidebar.is_stuck .inner-sidebar {
+    position: inherit !important;
+    display: block !important;
+  }
+
+  .toc_widget {
+    position: absolute;
+    height: 100%;
+  }
+}
+
+.idea-status-label {
+  background: @brand-secondary;
+  border-radius: 3px;
+  color: #fff !important;
+  font-weight: bold;
+  padding: 8px 20px;
+  font-size: 80%;
+  
+  &:before {
+    .font-icon();
+  }
+}
+
+//FacetWP
+.facetwp-checkbox.checked {
+  font-weight: bold;
 }

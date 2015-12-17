@@ -1,13 +1,12 @@
-<div class="post-loop <?php do_action('post_loop_class'); ?>">
-    <article <?php post_class(); ?>>
+<?php
+//This loads the right template in FacetWP
+while ( have_posts() ): the_post();
 
-      <header>
-        <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><i class="fa fa-file-text-o"></i> <?php the_title(); ?></a></h2>
-      </header>
+if (get_post_type() == 'wpkb-article') {
+    get_template_part('templates/loops/documentation');
+} else {
+    get_template_part('templates/loops/gistpen');
+};
 
-    <div class="entry-summary intro-paragraph">
-    	<?php the_excerpt(); ?>
-    </div>
-
-    </article>
-</div>
+endwhile;
+?>
