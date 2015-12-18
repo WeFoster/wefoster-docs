@@ -9,34 +9,24 @@ Template Name: Documentation Index
 
     <div class="main <?php do_action('class_main'); ?>" role="main">
 
-      <?php
-      // Let's query for the Testimonial Posts
-      $args = array(
-        'post_type' => 'wpkb-article',
-        'post_status' => 'published',
-        'facetwp' => true // we added this
-      );
+        <?php
+          $args = array(
+            'post_type' => 'wpkb-article',
+            'post_status' => 'published'
+          );
+          // The Query
+          $query = new WP_Query($args);
+        ?>
+        <?php if ($query->have_posts()) { while ($query->have_posts()) { $query->the_post(); ?>
 
-      // The Query
-      $query = new WP_Query($args); ?>
+            <?php get_template_part('templates/loops/docs');?>
 
-
-      <?php if ($query->have_posts()) {
-        while ($query->have_posts()) {
-          $query->the_post();
-          ?>
-          <?php get_template_part('templates/loops/docs');
-          ?>
-
-          <?php
-
+        <?php }
+        } else {
+          echo 'No Testimonials Found';
         }
-      } else {
-        echo 'No Testimonials Found';
-      }
-      ?>
-
-      <?php wp_reset_postdata();?>
+        wp_reset_postdata();?
+        ?>
 
 
 

@@ -13,6 +13,7 @@ jQuery(document).ready(function() {
     });
   });
 
+
   //Ajax FaceWP Goodness
   jQuery(window).bind("load", function() {
 
@@ -20,6 +21,9 @@ jQuery(document).ready(function() {
       jQuery('html, body').animate({
         scrollTop: jQuery('.main').offset().top - 400
       }, 500);
+
+      AAPL_loadPageInit("");
+
     });
 
     jQuery(document).on('facetwp-refresh', function() {
@@ -34,9 +38,7 @@ jQuery(document).ready(function() {
 
 
 
-  jQuery('.post-loop a').attr('href', function(index, value) {
-    return value + '#wpkb-breadcrumbs';
-  });
+
 
 
   function setHeight() {

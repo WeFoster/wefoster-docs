@@ -20,10 +20,80 @@ function add_kb_taxonomies() {
 add_action( 'init', 'add_kb_taxonomies' );
 
 function wfc_kb_archive() {
-  if ( is_tax() ): ?>
+  if ( is_tax() ):
+    $term = get_queried_object();
+  ?>
 
   <article class="widget">
-        <?php  echo term_description( ); ?>
+
+    <h4>Documentation</h4>
+
+    <?php
+    $term_id = get_queried_object_id();
+    $args = array(
+      'post_type' => 'wpkb-article',
+      'orderby' => 'title',
+      'order' => 'ASC',
+      'tax_query' => array(
+        array(
+            'taxonomy'          => 'wpkb-category',
+            'terms'             => $term_id,
+            'include_children'  => false
+        ),
+    ),
+    );
+    // The Query
+    $query = new WP_Query($args);
+    ?>
+    <?php if ($query->have_posts()) { while ($query->have_posts()) { $query->the_post(); ?>
+
+      <ul class="list-unstyled">
+        <li>
+          <a href="<?php the_permalink();?>">
+            <i class="fa fa-file-text"></i> <?php the_title();?>
+          </a>
+      </li>
+      </ul>
+
+      <?php }
+    } else {
+      echo 'No Docs Found';
+    }
+    wp_reset_postdata();
+    ?>
+
+  </article>
+
+
+  <article class="widget">
+
+    <h4>Code Snippets</h4>
+
+    <?php
+      // Define the query
+      $args = array(
+        'post_type' => 'gistpen',
+        'wpkb-category' => $term->slug
+      );
+      $query = new WP_Query( $args );
+
+      if ($query->have_posts()) {
+
+       echo '<ul class="list-unstyled">';
+        // Start the Loop
+        while ( $query->have_posts() ) : $query->the_post(); ?>
+         <li>
+           <a href="<?php the_permalink(); ?>"><i class="fa fa-codepen"></i> <?php the_title(); ?></a>
+         </li>
+      <?php endwhile;
+       echo '</ul>';
+    } else {
+      echo 'No Code Snippets Found';
+    }
+    // use reset postdata to restore orginal query
+    wp_reset_postdata();
+    ?>
+
   </article>
 
  <?php endif;
