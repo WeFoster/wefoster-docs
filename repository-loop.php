@@ -1,5 +1,3 @@
-
-
 <div class="post-loop-wrap">
     <div class="post-loop-inner">
 

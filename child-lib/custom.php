@@ -1,29 +1,29 @@
 <?php
 /**
-* Hide Sidebar until JS is done.
-*
-*/
+ * Hide Sidebar until JS is done.
+ */
 function dequeue_buddypress() {
-	if (!is_admin()) {
-		wp_dequeue_style('bp-legacy-css');
-		wp_deregister_script('bp-jquery-query');
-		wp_deregister_script('bp-confirm');
+	if ( ! is_admin() ) {
+		wp_dequeue_style( 'bp-legacy-css' );
+		wp_deregister_script( 'bp-jquery-query' );
+		wp_deregister_script( 'bp-confirm' );
 	}
 }
-add_action('wp_enqueue_scripts', 'dequeue_buddypress');
+add_action( 'wp_enqueue_scripts', 'dequeue_buddypress' );
 
-
-function wfc_sidebar_class() {?>
+function wfc_sidebar_class() {
+	?>
   js-flash
 <?php
+
 }
-add_action( 'class_inner_sidebar','wfc_sidebar_class' );
+add_action( 'class_inner_sidebar', 'wfc_sidebar_class' );
 
 /**
- * Idea Stream Search
- *
+ * Idea Stream Search.
  */
-function wfd_search() { ?>
+function wfd_search() {
+	?>
 <div class="site-search">
   <form action="" method="get">
       <div class="input-group col-sm-9">
@@ -32,15 +32,16 @@ function wfd_search() { ?>
       </div><!-- /input-group -->
   </form>
 </div>
-<?
+<?php
+
 }
-add_action( 'open_primary_navigation','wfd_search' );
+add_action( 'open_primary_navigation', 'wfd_search' );
 
 /**
-* Add Facets to Articles
-*
-*/
-function wfc_site_header() {?>
+ * Add Facets to Articles.
+ */
+function wfc_site_header() {
+	?>
 
   <article class="widget site-header pull-left">
 
@@ -53,5 +54,6 @@ function wfc_site_header() {?>
 
 
 <?php
+
 }
-//add_action( 'open_primary_navigation','wfc_site_header', 1 );
+// add_action( 'open_primary_navigation','wfc_site_header', 1 );
