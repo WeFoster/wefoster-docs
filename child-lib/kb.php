@@ -4,7 +4,7 @@
  */
 function wfc_back_widget()
 {
-    if (is_singular('wpkb-article')) :?>
+if (is_singular('wpkb-article')) :?>
   <article class="widget back-to-docs">
     <h4><i class="fa fa-chevron-left"></i> <a href="<?php echo site_url();
     ?>">Back to Documentation</a></h4>
@@ -12,6 +12,19 @@ function wfc_back_widget()
 <?php endif;
 }
 add_action('close_sidebar', 'wfc_back_widget', 100);
+
+function wfc_toc()
+{
+if (is_singular('wpkb-article')) :?>
+  <article class="widget back-to-docs">
+    <h4><i class="fa fa-binoculars"></i> Contents</h4>
+
+    <div id="toc"></div>
+  </article>
+<?php endif;
+}
+add_action('open_sidebar', 'wfc_toc', 100);
+
 
 function add_kb_taxonomies()
 {

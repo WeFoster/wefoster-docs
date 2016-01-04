@@ -175,7 +175,7 @@ h4 {
 //
 //TOC
 //
-.toc_widget_list {
+#toc ol {
   margin: 0;
   padding: 0;
   font-size: 95%;
@@ -224,6 +224,33 @@ h4 {
           //color: @text-color;
         }
       }
+    }
+  }
+
+
+  .toc-active {
+    background: #2e3138 none repeat scroll 0 0;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    
+    a {
+      color: @white !important;
+    }
+  }
+
+
+  .h3-toc {
+    font-size: 90%;
+    border-bottom: 0 none;
+    padding-left: 25px;
+    opacity: 0.8;
+
+    
+    &.toc-active a {
+      padding-left: 30px;
     }
   }
 }
