@@ -1,7 +1,4 @@
 <?php
-/**
- * Hide Sidebar until JS is done.
- */
 function dequeue_buddypress() {
 	if ( ! is_admin() ) {
 		wp_dequeue_style( 'bp-legacy-css' );
@@ -11,6 +8,9 @@ function dequeue_buddypress() {
 }
 add_action( 'wp_enqueue_scripts', 'dequeue_buddypress' );
 
+/**
+ * Hide Sidebar until JS is done.
+ */
 function wfc_sidebar_class() {
 	?>
   js-flash
