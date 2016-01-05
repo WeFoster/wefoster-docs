@@ -111,7 +111,7 @@ function(a) {
 jQuery(document).ready(function() {
 
   jQuery('#toc').toc({
-    'selectors': 'h2,h3,h4', //elements to use as headings
+    'selectors': 'h2,h3', //elements to use as headings
     'container': '.entry-content', //element to find all selectors in
     'smoothScrolling': true, //enable or disable smooth scrolling on click
     'prefix': 'toc', //prefix for anchor tags and class names
@@ -162,9 +162,6 @@ jQuery(document).ready(function() {
   jQuery(document).on('facetwp-loaded', function() {
     jQuery(".loading-tricks").remove();
   });
-
-
-
 
 
 
