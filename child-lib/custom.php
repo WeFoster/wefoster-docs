@@ -1,4 +1,23 @@
 <?php
+function wpsd_add_kb_args() {
+    global $wp_post_types;
+
+    $wp_post_types['wpkb-article']->show_in_rest = true;
+    $wp_post_types['wpkb-article']->rest_base = 'wpkb-article';
+    $wp_post_types['wpkb-article']->rest_controller_class = 'WP_REST_Posts_Controller';
+}
+add_action( 'init', 'wpsd_add_kb_args', 30 );
+
+
+function sb_add_taxes_to_api() {
+    $taxonomies = get_taxonomies( 'wpkb-category', 'wpkb-keyword' );
+
+    foreach( $taxonomies as $taxonomy ) {
+        $taxonomy->show_in_rest = true;
+    }
+}
+add_action( 'init', 'sb_add_taxes_to_api', 30 );
+
 function dequeue_buddypress() {
 	if ( ! is_admin() ) {
 		wp_dequeue_style( 'bp-legacy-css' );
