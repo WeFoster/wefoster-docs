@@ -11,7 +11,7 @@ if (is_singular('wpkb-article')) :?>
   </article>
 <?php endif;
 }
-add_action('close_sidebar', 'wfc_back_widget', 100);
+add_action('wf_close_sidebar', 'wfc_back_widget', 100);
 
 function wfc_toc()
 {
@@ -23,7 +23,7 @@ if (is_singular('wpkb-article')) :?>
   </article>
 <?php endif;
 }
-add_action('open_sidebar', 'wfc_toc', 100);
+add_action('wf_open_sidebar', 'wfc_toc', 100);
 
 
 function add_kb_taxonomies()
@@ -123,7 +123,7 @@ function wfc_kb_archive()
 
 <?php endif;
 }
-add_action('open_sidebar', 'wfc_kb_archive');
+add_action('wf_open_sidebar', 'wfc_kb_archive');
 
 /**
  * Add GitHub Link After Content.
@@ -140,5 +140,5 @@ function wfc_show_github_link()
 	<?php
 
 }
-add_action('close_entry_content', 'wfc_show_github_link');
-add_action('open_post_meta', 'wfc_show_github_link');
+add_action('wf_close_entry_content', 'wfc_show_github_link');
+add_action('wf_open_post_meta', 'wfc_show_github_link');

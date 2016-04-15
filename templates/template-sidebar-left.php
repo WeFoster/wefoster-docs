@@ -7,7 +7,7 @@ Template Name: Documentation Index
 
 <?php get_template_part('header'); ?>
 
-    <div class="main <?php do_action('class_main'); ?>" role="main">
+    <div class="main <?php do_action('wf_class_main'); ?>" role="main">
 
         <?php
           $args = array(

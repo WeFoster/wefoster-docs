@@ -5,6 +5,7 @@ add_action('wp_enqueue_scripts', 'my_dequeue_styles', 10000);
 function my_dequeue_styles()
 {
     wp_dequeue_style('wff_main');
+    wp_dequeue_style('wff_buddypress');
 }
 
 function wff_child_scripts()

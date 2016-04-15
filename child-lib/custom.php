@@ -36,7 +36,7 @@ function wfc_sidebar_class() {
 <?php
 
 }
-add_action( 'class_inner_sidebar', 'wfc_sidebar_class' );
+add_action( 'wf_class_inner_sidebar', 'wfc_sidebar_class' );
 
 /**
  * Idea Stream Search.
@@ -54,7 +54,7 @@ function wfd_search() {
 <?php
 
 }
-add_action( 'open_primary_navigation', 'wfd_search' );
+add_action( 'wf_open_primary_navigation', 'wfd_search' );
 
 /**
  * Add Facets to Articles.
